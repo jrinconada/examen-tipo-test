@@ -32,10 +32,7 @@ def isZero(score):
 # Assuming choice 'a' is the correct answer for all questions
 def count(letters):
 	global rightAnswers
-	right = 0
-	for i in list(letters):
-		if i == 'a':
-			right = right + 1
+	right = len(list(filter(lambda letter: letter == 'a', letters)))
 	rightAnswers[right] = rightAnswers[right] + 1
 
 # Given a contatenation of letters, adds one last letter for every possible choice,
