@@ -7,7 +7,6 @@ answers = list('abcd')
 # Initializes all the variables
 def init(questions, show, options):
     global showPossibilites
-    global possibilities
     global rightAnswers
     global answers
     showPossibilites = True if show == 's' else False

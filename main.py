@@ -1,11 +1,10 @@
 import brute_force  # Possibilities generation by listing all of them
 import probability # Computes probabilities and conditional probability
-
-
+import combinatorics # Computes possibilities using combinatorics
 
 def showAnalysis(rightAnswers, possibilities):
 	print()
-	print('Hay', len(answers)**questions, 'posibilidades en total')
+	print('Hay', possibilities, 'posibilidades en total')
 	print()
 	print('Hay', rightAnswers[0], 'posibilidades de fallar todas las preguntas, hay un', probability.computeProbability(rightAnswers[0], possibilities), '% de probabilidad de que pase, obteniendo', probability.score(0), 'puntos.')
 	for i in range(1, len(rightAnswers) - 1):
@@ -18,13 +17,23 @@ def showAnalysis(rightAnswers, possibilities):
 
 # Main
 
-# Ask for parameters
-questions = int(input('Número de preguntas: '))
-show = input('¿Mostrar posibilidades? (s/n) ')
-# Initialize stuff
+# Number of choices and number of answers
 answers = list('abcd')
-brute_force.init(questions, show, answers)
-# Compute all possible answers
-brute_force.computePossibilities(questions, '')
-# Print data analysing possibilities, probabilities and scores
-showAnalysis(brute_force.rightAnswers, brute_force.possibilities)
+questions = int(input('Número de preguntas: '))
+
+# ¿Show all possibilities?
+show = input('¿Mostrar posibilidades? (s/n) ')
+if show == 's' and questions > 8:
+	print('Son demasiadas posibilidades para mostrar')
+	show = 'n'
+
+if show == 's': # Brute force it to show every possibility
+	# Initialize and compute all possible answers
+	brute_force.init(questions, show, answers)
+	brute_force.computePossibilities(questions, '')
+	# Print data analysing possibilities, probabilities and scores
+	showAnalysis(brute_force.rightAnswers, brute_force.possibilities)
+else: # Calculate using formula
+	combinatorics.init(questions, answers)
+	combinatorics.computePossibilities()
+	showAnalysis(combinatorics.rightAnswers, combinatorics.possibilities)
