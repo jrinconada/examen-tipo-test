@@ -1,4 +1,13 @@
 
+answers = 4
+questions = 1
+
+# Initializes all the variables
+def init(q, a):
+    global answers
+    global questions
+    questions = q
+    answers = len(a)
 
 # Returns the probability as a percentage given a number of events, taking into account the possibilities computed before
 def computeProbability(events, possibilities):
@@ -8,8 +17,8 @@ def computeProbability(events, possibilities):
 # Assuming addition of one point for a right answers and substraction of 0.33 for a wrong answer
 def score(correctAnswers):
 	positive = 1
-	negative = 1 / 3
-	return positive * correctAnswers - ((4 - correctAnswers) * negative)
+	negative = 1 / (answers - 1)
+	return positive * correctAnswers - ((questions - correctAnswers) * negative)
 
 # Returns the added probability for a given condition
 # Possible conditions are: an positive number of points, a negative number or zero

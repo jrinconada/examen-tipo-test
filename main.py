@@ -20,6 +20,7 @@ def showAnalysis(rightAnswers, possibilities):
 # Number of choices and number of answers
 answers = list('abcd')
 questions = int(input('Número de preguntas: '))
+probability.init(questions, answers)
 
 # ¿Show all possibilities?
 show = input('¿Mostrar posibilidades? (s/n) ')
