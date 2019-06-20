@@ -24,6 +24,6 @@ El programa está escrito en Python 3, consite en un único fichero y no tiene p
 ```
 python main.py
 ```
-El programa pregunta primero el número de preguntas que queremos calcular. Al usar un algoritmo que genera todas al combinaciones mediante fuerza bruta, no se recomienda pasar de 10 preguntas ya que empieza a ser mucha carga computacional.
+El programa pregunta primero el número de preguntas que queremos calcular.
 
 La segunda pregunta es si quieres imprimir todas las posibilidades por consola. A partir de 5 preguntas hay más de 1000 posibilidades con lo que empieza a ser poco práctico imprimirlas y cada vez más costoso en carga computacional, por lo tanto, no se imprimirán más si se seleccionan más de 8 preguntas, mostrando únicamente los cálculos de probabilidades.
