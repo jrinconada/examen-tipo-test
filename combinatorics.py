@@ -26,11 +26,6 @@ def combinations(n,k):
 def calculateZeroRight():
     return (answers - 1)**questions
 
-# For every question there is a possibility of geting it right
-# and multiply for all remaing possibilities of geting the rest wrong
-def calculateOneRight():
-    return questions * (answers - 1)**(questions - 1)
-
 # For every possible combination of arraging n elements
 # multiply all remaing possibilities of getting the rest wrong
 def calculateNRight(n):
@@ -48,10 +43,8 @@ def computePossibilities():
     possibilities = answers**questions
     # All wrong
     rightAnswers[0] = calculateZeroRight()
-    # One right
-    rightAnswers[1] = calculateOneRight()
     # n right (questions - n wrong)
-    for i in range(2, len(rightAnswers) - 1):
+    for i in range(1, len(rightAnswers) - 1):
         rightAnswers[i] = calculateNRight(i)
     # All right
     rightAnswers[-1] = calculateAllRight()
